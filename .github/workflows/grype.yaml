@@ -1,0 +1,50 @@
+name: Grype scan
+
+on:
+  workflow_call:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  Grype-Scan:
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v3
+      
+    - name: Running a scan with an json file as an output
+      uses: anchore/scan-action@d5aa5b6cb9414b0c7771438046ff5bcfa2854ed7
+      id: scan
+      with:
+        fail-build: false
+        output-format: json
+        
+    - name: Running a scan with an sarif file as an output
+      uses: anchore/scan-action@d5aa5b6cb9414b0c7771438046ff5bcfa2854ed7
+      id: scan2
+      with:
+        fail-build: false
+        output-format: sarif
+        
+    - name: Save the json file vulnerability report
+      uses: actions/upload-artifact@master
+      if: always()
+      with:
+        name: grype_results.json
+        path: ./grype_results.json
+        
+    - name: Upload vulnerability report to github security scanning
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: ${{ steps.scan2.outputs.sarif }}  
+      
+      
+      
+    
