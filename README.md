@@ -24,7 +24,7 @@ To use the workflows in this repository, follow these steps:
 2. Create new workflows depending on the tools you want to use.
 3. At the beginning of the `jobs` key, add the following option:
    ```
-   uses: t-kolev/ric-plt-xapp-frame/-github/workflows/grype.yml@master
+   uses: t-kolev/Continuous-SCA-Scanning/.github/workflows/snyk.yaml@main
    ```
 
 ## Acknowledgments
