@@ -38,7 +38,7 @@ jobs:
       if: always()
       with:
         name: grype_results.json
-        path: grype_results.json
+        path: ./grype_results.json
         if-no-files-found: warn
         
     - name: Upload vulnerability report to github security scanning
