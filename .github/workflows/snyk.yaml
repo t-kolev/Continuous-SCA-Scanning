@@ -6,7 +6,7 @@ on:
       SNYK_TOKEN: 
         required: true
   push: 
-    branches: ["master" ]
+    branches: ["main" ]
 
 permissions:
   contents: read

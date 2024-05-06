@@ -3,7 +3,7 @@ name: trivy
 on:
   workflow_call:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
