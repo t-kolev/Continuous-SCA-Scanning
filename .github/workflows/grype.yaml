@@ -19,15 +19,15 @@ jobs:
     - name: Check out the code
       uses: actions/checkout@v3
       
-    - name: Running a scan with an json file as an output
+    - name: Running a scan with a json file as an output
       uses: anchore/scan-action@v3
-      id: scan
+      id: scan1
       with:
         fail-build: false
         add-cpes-if-none: true
         output-format:  json
         
-    - name: Running a scan with an sarif file as an output
+    - name: Running a scan with a sarif file as an output
       uses: anchore/scan-action@v3
       id: scan2
       with:
@@ -40,8 +40,15 @@ jobs:
       if: always()
       with:
         name: grype_results.json
-        path: ${{ steps.scan.outputs.json }}  
+        path: ${{ steps.scan1.outputs.json }}  
         
+    - name: Save the json vulnerability report to an artifact
+      uses: actions/upload-artifact@master
+      if: always()
+      with:
+        name: grype_results.sarif
+        path: ${{ steps.scan2.outputs.json }}  
+
     - name: Upload vulnerability report to github security scanning
       uses: github/codeql-action/upload-sarif@v3
       with:
