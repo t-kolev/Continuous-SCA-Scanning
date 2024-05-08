@@ -29,4 +29,4 @@ To use the workflows in this repository, follow these steps:
 
 ## Acknowledgments
 
-Special thanks to Dr. Kashyap Thimmaraju for their guidance and support throughout this thesis project.
+Special thanks to Dr. Kashyap Thimmaraju for his guidance and support throughout this thesis project.
