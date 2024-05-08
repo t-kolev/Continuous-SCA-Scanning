@@ -25,7 +25,7 @@ jobs:
       with:
         severity-cutoff: critical
         fail-build: false
-        output-format: json
+        output-format:  grype_results.json
         
     - name: Running a scan with an sarif file as an output
       uses: anchore/scan-action@v3
@@ -33,7 +33,7 @@ jobs:
       with:
         severity-cutoff: critical
         fail-build: false
-        output-format: sarif
+        output-format:  sarif
         
     - name: Save the json vulnerability report to an artifact
       uses: actions/upload-artifact@master
