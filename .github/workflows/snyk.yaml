@@ -44,13 +44,13 @@ jobs:
         with:
           name: snyk_results.json
           path: ./snyk_results.json
-                    
+
       - name: Save the json file vulnerability report
         uses: actions/upload-artifact@master
         if: always()
         with:
             name: snyk_results.sarif
-            path: ./snyk_results.sarif
+            path: ./snyk-code.sarif
         
         # Push the Snyk Code results into GitHub Code Scanning tab
       - name: Upload result to GitHub Code Scanning
