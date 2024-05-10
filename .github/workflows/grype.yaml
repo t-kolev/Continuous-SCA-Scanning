@@ -1,13 +1,9 @@
 name: Grype scan
-
 on:
   workflow_call:
   push:
     branches: [ "main" ]
-
-permissions:
-  contents: read
-
+    
 jobs:
   Grype-Scan:
     permissions:
@@ -41,8 +37,7 @@ jobs:
       with:
         name: grype_results.json
         path: ${{ steps.scan1.outputs.json }}  
-        
-    
+
     - name: Upload vulnerability report to github security scanning
       uses: github/codeql-action/upload-sarif@v3
       with:
