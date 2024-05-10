@@ -8,9 +8,6 @@ on:
   push: 
     branches: ["main" ]
 
-permissions:
-  contents: read
-
 jobs:
   snyk:
     permissions:
@@ -27,6 +24,9 @@ jobs:
         env:
         # This is where you will need to introduce the Snyk API token created with your Snyk account
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Authenticating snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
         
         # Use || true to not fail the pipeline
       - name: Snyk Code test
