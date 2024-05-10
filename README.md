@@ -22,9 +22,12 @@ To use the workflows in this repository, follow these steps:
 
 1. Create a folder named `.github/workflows` in the repository you want to scan.
 2. Create new workflows depending on the tools you want to use.
-3. At the beginning of the `jobs` key, add the following option:
-   ```
-   uses: t-kolev/Continuous-SCA-Scanning/.github/workflows/snyk.yaml@main
+3. At the beginning of the `jobs` key, add the following option according to the tool you want to use:
+
+   For example if you want to use the Trivy SCA workflow you import it like this:
+
+   ```yaml
+   uses: t-kolev/Continuous-SCA-Scanning/.github/workflows/trivy.yaml@main
    ```
 
 ## Acknowledgments
