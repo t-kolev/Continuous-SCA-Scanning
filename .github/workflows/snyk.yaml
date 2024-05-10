@@ -1,5 +1,4 @@
 name: Snyk Scan
-
 on:
   workflow_call:
     secrets:
