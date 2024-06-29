@@ -1,0 +1,9 @@
+https://github.com/onosproject/onos-a1t
+https://github.com/onosproject/onos-cli
+https://github.com/onosproject/onos-e2t
+https://github.com/onosproject/onos-config
+https://github.com/onosproject/onos-kpimon
+https://github.com/onosproject/onos-operator
+https://github.com/onosproject/onos-lib-go
+https://github.com/onosproject/onos-topo
+https://github.com/onosproject/onos-uenib
