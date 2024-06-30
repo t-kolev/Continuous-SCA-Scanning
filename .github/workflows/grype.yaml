@@ -6,36 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  update-repo:
-    runs-on: ubuntu-latest
-
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
-
-    steps:
-    - name: Checkout source
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Set up Git
-      run: |
-        git config --global user.name "${{ secrets.GIT_USERNAME }}"
-        git config --global user.email "${{ secrets.GIT_EMAIL }}"
-
-    - name: Make the script executable
-      run: chmod +x update_repo.sh
-      
-    - name: Run update_repo.sh
-      run: ./update_repo.sh onos  # Change 'osc' to 'onos' or 'aic' as needed
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
   Grype-Scan:
-    needs: update-repo
     permissions:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
