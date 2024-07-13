@@ -33,17 +33,17 @@ jobs:
         
         # Use || true to not fail the pipeline
       - name: Snyk Code test
-        run: snyk test --all-projects --json > snyk_results.json || true
+        run: snyk test --all-projects --json > snyk-results.json || true
 
       - name: Snyk Code test
         run: snyk test --all-projects --sarif > snyk-code.sarif || true
 
       - name: Save the json file vulnerability report
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: snyk_results.json
-          path: ./snyk_results.json
+          name: snyk-results
+          path: ./snyk-results.json
         
         # Push the Snyk Code results into GitHub Code Scanning tab
       - name: Upload result to GitHub Code Scanning
