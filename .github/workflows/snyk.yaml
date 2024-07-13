@@ -38,13 +38,13 @@ jobs:
       - name: Snyk Code test
         run: snyk test --all-projects --sarif > snyk-code.sarif || true
 
-      - name: Save the json file vulnerability report
-        uses: actions/upload-artifact@v4
+      - name: Save the JSON file vulnerability report
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: snyk-results
           path: ./snyk-results.json
-        
+    
         # Push the Snyk Code results into GitHub Code Scanning tab
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
