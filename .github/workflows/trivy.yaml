@@ -38,7 +38,7 @@ jobs:
             severity: 'LOW,MEDIUM,CRITICAL,HIGH'
             
         - name: Save the json vulnerability report to an artifact
-          uses: actions/upload-artifact@v3
+          uses: actions/upload-artifact@v4
           with:
             name: trivy-results
             path: ./trivy-results.json
