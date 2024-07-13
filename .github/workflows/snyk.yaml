@@ -39,7 +39,7 @@ jobs:
         run: snyk test --all-projects --sarif > snyk-code.sarif || true
 
       - name: Save the JSON file vulnerability report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: snyk-results
