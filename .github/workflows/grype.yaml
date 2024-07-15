@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: grype_results
+        name: grype-results
         path: ${{ steps.scan1.outputs.json }}  
     
     - name: Upload vulnerability report to github security scanning
