@@ -16,7 +16,7 @@ This repository contains the following:
         - Snyk
 2. **Links**:
     - Text files containing links to the GitHub repositories for the three RICs where we established continuous scanning:
-        - `e_oaic_links.txt`
+        - `oaic_links.txt`
         - `onos_links.txt`
         - `osc_links.txt`
 3. **Data Analysis**:
