@@ -59,3 +59,9 @@ To use the workflows in a repository, follow these steps:
 
    ```yaml
    uses: t-kolev/Continuous-SCA-Scanning/.github/workflows/trivy.yaml@main
+
+## Acknowledgments
+
+Special thanks to Dr. Kashyap Thimmaraju for his guidance and support throughout this thesis project.
+
+For any issues or questions, please feel free to raise an issue in this repository.
